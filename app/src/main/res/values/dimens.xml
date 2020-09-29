@@ -3,9 +3,9 @@
     <dimen name="activity_horizontal_margin">8dp</dimen>
     <dimen name="activity_vertical_margin">8dp</dimen>
 
-    <dimen name="pub_checkbox_line_separator_thickness">4dp</dimen>
-    <dimen name="pub_checkbox_line_separator_margin">8dp</dimen>
-    <dimen name="pub_checkbox_padding">8dp</dimen>
-    <dimen name="pub_checkbox_indent">8dp</dimen>
-    <dimen name="pub_checkbox_header_size">12dp</dimen>
+    <dimen name="checkbox_line_separator_thickness">4dp</dimen>
+    <dimen name="checkbox_line_separator_margin">8dp</dimen>
+    <dimen name="checkbox_padding">8dp</dimen>
+    <dimen name="checkbox_indent">8dp</dimen>
+    <dimen name="checkbox_header_size">12dp</dimen>
 </resources>
