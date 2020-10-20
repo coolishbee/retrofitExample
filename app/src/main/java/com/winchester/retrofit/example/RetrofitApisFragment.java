@@ -98,11 +98,6 @@ public class RetrofitApisFragment extends Fragment {
 
     }
 
-    @OnClick(R.id.carriersV2_btn)
-    public void onCarriersV2BtnClick() {
-
-    }
-
     @OnClick(R.id.tracks_btn)
     public void onTracksBtnClick() {
 
@@ -137,6 +132,12 @@ public class RetrofitApisFragment extends Fragment {
             }
         });
 
+    }
+
+    @OnClick(R.id.carriersV2_btn)
+    public void onCarriersV2BtnClick() {
+        long track_id = 1111111111111L;
+        RetrofitClient.get().sendPacketAsyncTask(getActivity(), "kr.epost", track_id);
     }
 
 

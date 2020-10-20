@@ -7,7 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public class RespCarrierTracks {
+public class RespCarrierTracks extends RespPacket{
 
 
     @SerializedName("from")

@@ -1,17 +1,13 @@
 package com.winchester.retrofit.example.http;
 
-import com.google.gson.JsonObject;
 import com.winchester.retrofit.example.http.responseBody.RespCarrier;
 import com.winchester.retrofit.example.http.responseBody.RespCarrierTracks;
-import com.winchester.retrofit.example.http.responseBody.RespSearch;
 
 import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Headers;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 
 public interface RetrofitApiService {
 
