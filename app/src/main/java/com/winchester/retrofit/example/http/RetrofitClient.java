@@ -15,6 +15,7 @@ import com.winchester.retrofit.example.http.responseBody.RespPacket;
 
 import retrofit2.Call;
 import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
@@ -34,6 +35,7 @@ public class RetrofitClient {
     public RetrofitClient(@NonNull final String apiBaseUrl) {
         retrofit = new Retrofit.Builder()
                 .baseUrl(apiBaseUrl)
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(RetrofitUtils.getUnsafeOkHttpClient().build())
                 .build();
@@ -55,9 +57,6 @@ public class RetrofitClient {
 
     /**
      * @deprecated legacy system
-     */
-    /**
-     * receive Packet Listener
      */
     private PacketListener packetListener = new PacketListener() {
         @Override
@@ -97,7 +96,7 @@ public class RetrofitClient {
     public void sendPacketAsyncTask(Activity activity, String c_id, long t_id) {
 
         ProgressDialog progressDialog = new ProgressDialog(activity);
-        progressDialog.setMessage("sendPacketServerTime...");
+        progressDialog.setMessage("please wait...");
 
         Call<RespCarrierTracks> call = apiService.getCarriersTracks(c_id, t_id);
         SendPacketTask sendTask = new SendPacketTask(

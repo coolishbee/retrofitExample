@@ -1,5 +1,6 @@
 package com.winchester.retrofit.example;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -25,6 +26,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.schedulers.Schedulers;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -32,6 +36,9 @@ import retrofit2.Response;
 public class RetrofitApisFragment extends Fragment {
 
     private static final String TAG = "retrofitExample";
+
+    @NonNull
+    private ProgressDialog progressDialog;
 
     @Nullable
     @BindView(R.id.log)
@@ -41,6 +48,7 @@ public class RetrofitApisFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        progressDialog = new ProgressDialog(requireActivity());
     }
 
     @Nullable
@@ -138,6 +146,34 @@ public class RetrofitApisFragment extends Fragment {
     public void onCarriersV2BtnClick() {
         long track_id = 1111111111111L;
         RetrofitClient.get().sendPacketAsyncTask(getActivity(), "kr.epost", track_id);
+    }
+
+    @OnClick(R.id.carriersV3_btn)
+    public void onCarriersV3BtnClick() {
+//        long track_id = 1111111111111L;
+//
+//        Disposable test = RetrofitClient.get().apiService.getRxJavaCarriersTracks("kr.epost", track_id)
+//                .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe( apiResponse -> addLog(apiResponse.carrier.toString()),
+//                        error -> addLog(error.getMessage()));
+
+        startApiAsyncTask();
+    }
+
+    public Disposable startApiAsyncTask()
+    {
+        progressDialog.setCancelable(false);
+        progressDialog.setMessage("please wait...");
+        progressDialog.show();
+
+        long track_id = 1111111111111L;
+        return RetrofitClient.get().apiService.getRxJavaCarriersTracks("kr.epost", track_id)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .doFinally(() -> progressDialog.dismiss())
+                .subscribe( apiResponse -> addLog(apiResponse.carrier.toString()),
+                        error -> addLog(error.getMessage()));
     }
 
 

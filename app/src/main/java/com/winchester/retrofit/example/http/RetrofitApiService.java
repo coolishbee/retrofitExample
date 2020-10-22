@@ -5,13 +5,12 @@ import com.winchester.retrofit.example.http.responseBody.RespCarrierTracks;
 
 import java.util.List;
 
+import io.reactivex.Single;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
 public interface RetrofitApiService {
-
-
 
     @GET("/carriers")
     Call<List<RespCarrier>> getCarriers();
@@ -19,5 +18,9 @@ public interface RetrofitApiService {
     @GET("/carriers/{carrier_id}/tracks/{track_id}")
     Call<RespCarrierTracks> getCarriersTracks(@Path("carrier_id") String carrier_id,
                                               @Path("track_id") long track_id);
+
+    @GET("/carriers/{carrier_id}/tracks/{track_id}")
+    Single<RespCarrierTracks> getRxJavaCarriersTracks(@Path("carrier_id") String carrier_id,
+                                                      @Path("track_id") long track_id);
 
 }

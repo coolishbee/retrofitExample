@@ -4,8 +4,8 @@
     <string name="tracker_delivery">택배사 배송조회</string>
     <string name="carriers">택배사 목록 조회</string>
     <string name="tracks">배송 조회</string>
-    <string name="carriers_v2">택배사 목록 조회(ver2)</string>
-    <string name="app_notice">AppNotice</string>
+    <string name="carriers_v2">택배사 목록 조회(asyncTask)</string>
+    <string name="carriers_v3">택배사 목록 조회(RxJava)</string>
     <string name="app_policy">AppPolicy</string>
     <string name="app_update">AppUpdate</string>
 
