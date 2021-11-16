@@ -93,6 +93,9 @@ public class RetrofitClient {
         }
     };
 
+    /**
+     * @deprecated legacy system
+     */
     public void sendPacketAsyncTask(Activity activity, String c_id, long t_id) {
 
         ProgressDialog progressDialog = new ProgressDialog(activity);

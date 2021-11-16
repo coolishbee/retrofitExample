@@ -35,9 +35,9 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 
     //butterknife
-    implementation 'com.jakewharton:butterknife:10.2.0'     // android java
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'
-    //kapt 'com.jakewharton:butterknife-compiler:10.2.0'    // kotlin
+    implementation 'com.jakewharton:butterknife:10.2.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.1'   // android java
+    //kapt 'com.jakewharton:butterknife-compiler:10.2.0'                // kotlin
 
     //gson
     implementation 'com.google.code.gson:gson:2.8.5'
